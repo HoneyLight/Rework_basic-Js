@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Javascript Day 2</title>
+  </head>
+  <body>
+    <h1>Javascript Day 2</h1>
+
+    <p>Data Types</p>
+    <p>Arithmetic</p>
+    <p>String Manipulation</p>
+
+
+
+    <script>
+      // keywords to declare variables var, let , const
+
+//data types
+//primitive
+//------------strings
+"i don't like";
+// 'i don't like'
+//------------number
+//1, 4.5,
+//--------------------Boolean
+// returns true or false
+// returns 1 or 0
+let a = 12;
+let b = 5;
+//------------------undefined
+// variable names that have no value assigned
+let bull;
+console.log(bull); //undefined
+//-------------------null
+let name_ = 'james';
+name_ = null;
+
+//non-primitive
+//---------Arrays	0		1	2
+let names_of_humans = ['rex', 'lex', 'tina'];
+
+// console.log(names_of_humans[1])
+
+//--------objects
+// objects come in keys and values.
+let Adduls_details = {
+  name: 'Abdul',
+  age: 12,
+  gender: 'male',
+  location: 'maitama',
+};
+
+//--------typeOf
+console.log(typeof a);
+//array
+
+//ARITHMETIC OPERATORS
+// Addition +
+//Subtraction -
+//Multiplication *
+//Exponentiation **
+let age_1 = 12;
+age_1 = age_1 ** 4;
+console.log(age_1);
+
+//Division /
+//Modulus %
+let num_1 = 12;
+let num_2 = 3.5;
+console.log(num_1 % num_2);
+
+//Increment ++
+let d_o_b = 12;
+let new_d_o_b = d_o_b++;
+console.log(new_d_o_b);
+//Decrement --
+
+//STRING MANIPULATIONS
+
+let data = 'Hello World';
+
+//charAt
+console.log(data.charAt(0));
+
+//length
+console.log(data.length);
+
+//split
+let newWord = data.split(' ').join('-');
+console.log(newWord.toUpperCase());
+
+//slice
+console.log(data.slice(3, 6));
+
+//substring
+console.log(data.substring(3, 8));
+
+//includes
+console.log(data.includes('l'));
+
+//replace
+console.log(data.replace(/Hello/, 'Hi'));
+
+
+
+// Create a dialogue using a prompt with two major variables, firstname and lastname. whatever the lastname convert it to all caps
+
+// classwork answer
+// let firstName = prompt('What is your first name?');
+// let lastName = prompt(firstName + ', what is your last name?'); 
+// let newLastName = lastName.toUpperCase();
+// alert(firstName + ' ' + newLastName);
+
+// Assignment:
+ 
+// 1. Ask a user to input a word using a prompt, then reverse the word as your output. e.g if word = 'pig' output should be 'gip';
+
+// 2. Recieve a prompt from a user and change the first character of each word supplied to an uppercase
+
+// 3. Replace the spaces in the string given below with '-'
+// 	let wordString = "She reads like a child playing dress-up, an intern clothing herself out of her mother’s old work clothes."
+
+// let your ouput be : "She-reads-like-a-child-playing-dress-up,-an-intern-clothing-herself-out-of-her-mother’s-old-work-clothes."
+
+// 4. Get a prompt from a user and abbreviate each word supplied to be 3 characters long.
+    </script>
+  </body>
+</html>

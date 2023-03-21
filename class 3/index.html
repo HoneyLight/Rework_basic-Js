@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>class 3</title>
+</head>
+<body>
+    
+
+    
+    <script>
+        A//Comparison operators
+let num = 2;
+let num_ = 3;
+// == equal to
+// != not equal
+// > greater than
+// < less than
+// >= greater than or equal to
+// <= less than or equal to
+
+// Logical Operators
+// && logical and
+// || logical or
+// ! logical not
+
+//conditional operators
+// if
+// else if
+// else
+
+if (num >= num_) {
+  alert('good');
+} else {
+  alert('bad');
+}
+
+//Ternary operators
+
+num >= num_ ? alert('correct') : alert('error');
+
+let user = 'John';
+let user_Age = 23;
+
+let userAnsName = prompt('what is your name ?');
+// let userAnsAge = prompt('how old are you?');
+
+// if (userAnsName == user && userAnsAge == user_Age) {
+//   alert('Login successful');
+// } else if (userAnsName != user || userAnsAge < 18) {
+//   alert('Restricted');
+// } else {
+//   alert('welcome');
+// }
+
+
+switch (userAnsName) {
+  case 'Alex':
+    alert('good morning, '+ userAnsName);
+    break;
+  case 'Rita':
+    alert('good afternoon, ' + userAnsName);
+    break;
+  case user:
+    alert('good evening, ' + userAnsName);
+    break;
+  default:
+    alert('good day');
+}
+
+
+
+// Create a program that prompts the user for a number between 1 and 0, if 1, display "you're welcome" if 0, display "good afternoon", if none, "try again".
+// Display all output on the browser.
+
+// Assignment:
+
+// 1. Using a prompt, Complete the method that recieves an input string, and produces an output according to the table below:
+
+// Input			Output
+// “Jabroni”		“Patron Tequila”
+// “School Counselor”	“Anything with Alcohol”
+// “Programmer”		“Hipster Craft Beer”
+// “Bike Gang Member”	“Moonshine”
+// “Politician”		“Your tax dollars”
+// “Rapper”		“Cristal”
+// anything else		“Beer”
+
+// note: case sensitivity should not affect the words, words should still get an output no matter their case sensitivity. e.g RAPPER should still have an output of Cristal.
+
+// 2. Ask a question, Do you play the guitar? and the user is to submit his name only.
+
+// If user's name begins with 'L': output should be the person's name + plays the giutar.
+
+// Examples:
+// Input: Liya
+// Output: Liya plays the guitar
+
+// input: John
+// Output: John doesn't play the guitar
+
+// 3. Create a simple number game using prompt. Ask user to input any random number, if number is equal to what you have declared as a variable, tell user they have won.
+
+// Example:
+// let variable = 5;
+
+// if the user inputs 5, tell user they have won the game, else, tell user they have lost, and they should try again.
+    </script>
+</body>
+</html>

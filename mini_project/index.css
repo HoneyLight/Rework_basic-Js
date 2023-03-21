@@ -1,0 +1,70 @@
+body{
+    padding-top: 8rem;
+    font-family: sans-serif;
+    text-align: center;
+    background-image: url(./img/background.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.loan-form h1,
+.loan-form p,
+label{
+    color: white;
+}
+.input{
+    width: 80%;
+    margin: auto;   
+}
+input{
+    width: 425px;
+    height: 40px;
+    margin-bottom: 1rem;
+    border-radius: 10px;
+    border: none;
+    padding-left: 20px;
+    outline: none;
+    background-color: whitesmoke;
+}
+input:nth-of-type(9),
+input:nth-of-type(10),
+input:nth-of-type(11),
+input:nth-of-type(12),
+input:nth-of-type(13),
+input:nth-of-type(14),
+#acc-type{
+    width: 210px;
+    height: 40px;
+    margin-bottom: 1rem;
+    border-radius: 10px;
+}
+/* input:nth-of-type(6){
+    width: 425px;
+    height: 40px;
+    margin-bottom: 1rem;
+    border-radius: 10px;
+}
+input:nth-of-type(7){
+    width: 425px;
+    height: 40px;
+    margin-bottom: 1rem;
+    border-radius: 10px;
+} */
+#loan{
+    font-size: 20px;
+}
+.btn{
+    border: none;
+    background-color: 
+    #4b839a;
+    color: white;
+    font-size: 18px;
+    padding-left: 0;
+    cursor: pointer;
+}
+.errormsg {
+    color: red;
+    font-style: italic;
+    font-size: 10px;
+  }

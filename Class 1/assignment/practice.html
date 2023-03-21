@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+      Assignment: <br />
+
+      1. Using document.write, write to your document using html tags, write a
+      lengthy story that you have noticed or read about. <br />
+
+      2. Create 20 different variables using the var keywords.<br />
+
+      3. Using a prompt command, use answers of user to write a dialog and show
+      in your browser.<br />
+    
+    <script>
+        // question 1
+        document.write('<h1>Hello world</h1>');
+        document.write('<h4>My name is Debbie, a student of Rework academy and technologies</h4> <p>Today is <i>March 3rd, 2023</i> and it has been a roller coaster of emotions here and there for the good citizens of <strong>Nigeria</strong> as the election held last week was not free and fair.</p><p>You can check <a href="#">here</a> for more updates.</p><br> <p>Feel free to ask your questions.</p>');
+        document.write('<h1>The Press Conference speech that gave hope to Nigerians</h1><br> <p>The presidential candidate of the Labour Party (LP), Peter Obi, has claimed that he won the just-concluded February 25 presidential election, declaring that he will reclaim the mandate.</p><p>Obi, who spoke on Thursday at a press conference he addressed in Abuja, noted that the 2023 presidential election will go down as the most controversial in the history of Nigeria.</p><p>The LP candidate, who was making his first public appearance since after the February 25 elections, insisted that the exercise failed to meet the minimum standard of a free and fair election, hence he will approach the Court to reclaim his mandate.</p>')
+        document.write('<blockquote>We won the election. We will explore all legal action to reclaim our mandate,” Obi said, adding that since he has been asked to go to the court, he will obey and obedient and will prove how he won the election.</blockquote> <p>Nigeria cannot conduct an election 63 years after independence and it will be like this,” Obi insisted, adding that the election coming up on March 11 should be accorded the same seriousness.</p> <p>Obi also asked LP members and supporters in the country to troop out en mass and vote the party’s candidates in the forthcoming March 11 Governorship and State House of Assembly elections nationwide.</p>')
+        // question2
+        var name = 'Debbie';
+        var age = 4
+        var doubleAge = 8
+        var love12 = 12;
+        var _num = 12;
+        var right = 'something';
+        var Right = 'someone';
+        var year = 2023;
+        var x = 0;
+        var y = 3;
+        var camelCase = "lowercase word, then uppercase";        
+        var dinner2Go = "pizza";
+        var lunch2Go = "rice";
+        var I_AM_HUNGRY = true;
+        var I_AM_A_MAN = false;
+        var _Hello_ = "what a nice greeting"
+        var $_$ = "money eyes";
+        var weather = 'sunny'
+        var date = '3rd';
+        var num = 11;
+
+        // question3
+        var voteAge = 18;
+        var candidate = 'obi'
+
+        var fName = prompt('What is your name?');
+        var age = prompt(fName + ', How old are you?'); 
+
+        if (age < voteAge) {
+          alert("you can't enter")
+        }      
+        else {
+          var election = prompt('Since you are above ' + voteAge + ', did you vote?');
+        }
+        if (election == true){
+          var vote = prompt('Who did you vote for?');
+        }
+        else {
+          alert("BYE")
+        }
+        if (vote === candidate) {
+        alert("WELCOME")
+        }
+        else {
+        alert("GETAT")
+        }
+          
+// for the above, just put them in one container so that it will close if false or if no, meaning it wont continue.
+        // practice
+        //   confirm('Are you sure you want to delete?');
+        //   console.log(prompt);
+      </script>
+</body>
+</html>

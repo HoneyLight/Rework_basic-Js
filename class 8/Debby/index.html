@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM practice</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="signup">
+        <h1>Sign up</h1>
+    </div>
+
+
+    <div class="input" id="input">
+        <input type="text" id="fname" name="Firstname" placeholder="First name">
+        <input type="text" id="Lname" name="Last name " placeholder="Last name"><br>
+        <input type="text" name="Username" id="Uname" placeholder="Username">
+        <input type="text" name="Gender" id="gender" placeholder="Gender"><br>
+        <input type="text" name="email" id="email" placeholder="Email"><br>
+        <input type="text" name="password" id="password" placeholder="Password">
+    </div>
+    <div>
+        <input class="button" type="button" value="Sign up" onclick="myFunction()" />
+    </div>
+
+
+
+
+
+    <script>
+        let f = document.getElementById('fname');
+        let L = document.getElementById('Lname');
+        let U = document.getElementById('Uname');
+        let G = document.getElementById('gender'); 
+        let E = document.getElementById("email");
+        let p = document.getElementById("password");
+
+
+        function myFunction() {
+            // alert(fName.value)
+            if (f.value == undefined || f.value == "") {
+                alert("please input your First name ")
+            }
+
+        else  if (L.value == undefined || L.value == ""){
+                alert("please input your Last name ")
+            }
+
+            else if (U.value == null || U.value == ""){
+                alert("please input your Username")
+            }
+
+            else if (G.value == null || G.value== ""){
+                alert("please input your Gender")
+            }
+
+            else if (E.value == null || E.value=="")
+            alert('please input your email')
+
+            else if ( p.value.length < 5 ){
+                alert('password must be more than 5 characters')
+            }
+
+            else{
+                document.write("First name: " +f.value +'<br></br>' + "Last name: " + L.value+'<br></br>'+ "User name: " + U.value+'<br></br>'+ "Gender: " + G.value+'<br></br>'+ "Email: "+E.value+'<br></br>' +'Password: '+p.value);
+            }
+
+        }
+    </script>
+</body>
+</html>
+<!-- 
+
+//ASSIGNMENT
+// 1. Create a html page with design of your choice
+// 2. Include a form inside your designed page with details to be gotten from the form should be 
+// 	a. First Name
+// 	b. last Name
+// 	c. Username
+// 	d. Gender
+// 	e. Email
+// 	f. Password
+// 3. Validate the form inputs and make sure they are not empty or null, and the password length should not be lower than 5
+
+// **read up on the onclick method for your submit function
+
+// 4. If all details are correctly submitted, show the details submitted by the user in the browser. -->

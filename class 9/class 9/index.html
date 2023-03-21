@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day 9</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <form id="form">
+      <input
+        id="firstname"
+        type="text"
+        placeholder="Enter Name"
+        type="text"
+        value=""
+      /><br />
+      <p id="firstNameErr"></p>
+      <br />
+      <input
+        id="passwd"
+        type="password"
+        placeholder="Enter password"
+        value=""
+      /><br />
+      <p id="passwdErr"></p>
+      <br />
+      <input id="Num_" placeholder="Enter Number" type="date" value="" /><br />
+      <p id="numberErr"></p>
+      <br />
+      <label>Select your favorite fruit:</label>
+      <br />
+      <input type="checkbox" id="fruit1" name="fruit" value="Apple" />
+      <label for="fruit1">Apple</label>
+      <br />
+      <input type="checkbox" id="fruit2" name="fruit" value="Banana" />
+      <label for="fruit2">Banana</label>
+      <br />
+      <input type="checkbox" id="fruit3" name="fruit" value="Orange" />
+      <label for="fruit3">Orange</label>
+      <br /><br />
+      <p id="checkErr"></p>
+      <div class="btns">
+        <button type="submit" id="btn">Submit</button>
+        <button type="button" id="btn_reset">Reset</button>
+      </div>
+    </form>
+
+    <script src="index.js"></script>
+  </body>
+</html>
