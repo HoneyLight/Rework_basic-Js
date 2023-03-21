@@ -12,25 +12,29 @@
         let accNumErr = document.getElementById('accNumErr');
         let bvn = document.getElementById("bvn");
         let bvnErr = document.getElementById('bvnErr')
-        // let accountType = document.querySelectorAll('input[name="account"]');
         let amtLoanNeeded = document.getElementById('Lamount');
         let amtLoanNeededErr = document.getElementById('amtLoanNeededErr')
         let accountBalance = document.getElementById('Abalance');
         let accountBalErr = document.getElementById('accountBalErr');
         let creditHistory = document.getElementById('Chistory');
         let creditHistoryErr = document.getElementById('creditHistoryErr');
-        let lastDeposit = document.getElementById('Ldeposit');
+        let lastDepositDate = document.getElementById('Ldeposit');
         let lastDepositErr = document.getElementById('lastDepositErr');
         let lastLoanDate = document.getElementById('Lloan');
         let lastLoanDateErr = document.getElementById('lastLoanDateErr');
-        let loanRepayment = document.getElementById('Lrepayment');
+        let loanRepaymentDate = document.getElementById('Lrepayment');
         let loanRepaymentErr = document.getElementById('loanRepaymentErr');
         let accountType = document.querySelectorAll('input[name="acc-type"]');
         let btn = document.getElementById('btn');
 
-
-
         function myFunction() {
+            validation();
+            accountDetails();
+            loanDetails();
+            // userTotalPoint();
+        }
+
+        function validation() {
             if (firstname.value == undefined || firstname.value == "") {
                 firstNameErr.innerHTML = 'Required';
                 firstNameErr.classList.add('errormsg');
@@ -80,7 +84,7 @@
                 creditHistoryErr.innerHTML = 'Required';
                 creditHistoryErr.classList.add('errormsg');
                 }
-            else if (lastDeposit.value== null || lastDeposit.value=="") {
+            else if (lastDepositDate.value== null || lastDepositDate.value=="") {
                 lastDepositErr.innerHTML = 'Required';
                 lastDepositErr.classList.add('errormsg');
             }
@@ -88,7 +92,7 @@
                 lastLoanDateErr.innerHTML = 'Required';
                 lastLoanDateErr.classList.add('errormsg');
             }
-            else if (loanRepayment.value== null || loanRepayment.value=="") {
+            else if (loanRepaymentDate.value== null || loanRepaymentDate.value=="") {
                 loanRepaymentErr.innerHTML = 'Required';
                 loanRepaymentErr.classList.add('errormsg');
             }
@@ -101,71 +105,87 @@
         function loanDetails() {
             let x = 10;
             let y = 5;
-            let userScore = 0;
+            let userPoint = 0;
 
             if (accountBalance > amtLoanNeeded) {
-                let userScore1 = userScore + x;
-                // alert('congratulations,' + ' ' + firstname + ' ' + 'you just won 10points');
-                console.log(userScore1);
+                console.log(userPoint + x);
             }
             else if (accountBalance < amtLoanNeeded) {
-                let userScore1 = userScore - x;
-                alert('Sorry,' + ' ' + firstname + ' ' + 'you just lost 10points');
-                console.log(userScore1);
+                console.log(userPoint - x);
             }
-            else if(creditHistory <= 6) {
-                let userScore2 = userScore1 + x;
-                // alert('congratulations,' + ' ' + firstname + ' ' + 'you just won 10points');
-                console.log(userScore2);
+            if(creditHistory <= 6) {
+                console.log(userPoint + x);
             }
             else if (creditHistory > 6) {
-                let userScore2 = userScore1 - x;
-                // alert('Sorry,' + ' ' + firstname + ' ' + 'you just lost 10points');
-                console.log(userScore2);
+                console.log(userPoint - x);
             }
-            else if (lastDeposit <= 31) {
-                let userScore3 = userScore2 + y;
-                // alert('congratulations,' + ' ' + firstname + ' ' + 'you just won 5points');
-                console.log(userScore3);
+
+            let lastDepositDate_ = new Date(lastDepositDate.value);
+            let todaysDate = new Date();
+            let diff_in_days = (lastDepositDate_.getFullYear() * 12 + lastDepositDate_.getMonth() + lastDepositDate_.getDate()) - (todaysDate.getFullYear() * 12 + todaysDate.getMonth() + todaysDate.getDate());
+                
+            if (lastDepositDate <= 30) {
+                console.log(lastDepositDate.value);
+                console.log(diff_in_days);
+                console.log(userPoint + y);
             }
-            else if (lastDeposit > 31) {
-                let userScore3 = userScore2 - y;
-                // alert('Sorry,' + ' ' + firstname + ' ' + 'you just lost 5points');
-                console.log(userScore3);
+            else if (lastDepositDate > 30) {
+                console.log(lastDepositDate.value);
+                console.log(diff_in_days);
+                console.log(userPoint - y);
             }
-            else if(lastLoanDate > 6){
-                let userScore4 = userScore3 + x;
-                // alert('congratulations,' + ' ' + firstname + ' ' + 'you just won 10points');
-                console.log(userScore4);
+
+            let lastLoanDate_ = new Date(lastLoanDate.value)
+            let currentDate = new Date();
+            let diff_in_months = (lastLoanDate_.getFullYear() * 12 + lastLoanDate_.getMonth()) - (currentDate.getFullYear() * 12 + currentDate.getMonth());
+            
+            if (lastLoanDate > 6){
+                console.log(lastLoanDate.value);
+                console.log(diff_in_months);
+                console.log(userPoint + x);                
             }
-            else if(lastLoanDate <= 6){
-                let userScore4 = userScore3 - x;
-                console.log(userScore4);
+            else if (lastLoanDate < 6){
+                console.log(lastLoanDate.value);
+                console.log(diff_in_months);
+                console.log(userPoint - x);                
             }
-            else if(loanRepayment < 6){
-                let userScore5 = userScore4 + y;
-                console.log(userScore5);
+
+            let loanRepaymentDate_ = new Date(loanRepaymentDate.value)
+            let presentDate = new Date();
+            let repayment_diff_in_months = (loanRepaymentDate_.getFullYear() * 12 + loanRepaymentDate_.getMonth()) - (presentDate.getFullYear() * 12 + presentDate.getMonth());
+                
+            if (loanRepaymentDate < 6){
+                console.log(loanRepaymentDate.value);
+                console.log(repayment_diff_in_months);
+                console.log(userPoint + y);
             }
-            else if(loanRepayment >= 6){
-                let userScore5 = userScore4 - y;
-                console.log(userScore5);
+            else if (loanRepaymentDate >= 6){
+                console.log(loanRepaymentDate.value);
+                console.log(repayment_diff_in_months);
+                console.log(userPoint - y);
             }
-            else if(accountType.value == 'current') {
-                let userScore6 = userScore5 + x;
-                console.log(userScore6);
+            if(accountType.value == 'current') {
+                console.log(userPoint + x);
             }
             else if(accountType.value == 'savings') {
-                let userScore6 = userScore5 + y;
-                console.log(userScore6);
+                console.log(userPoint + y);
             }
-            else userTotalScore();
-        }
-
-        function userTotalScore(){
-            if (userScore6 > 30) {
-                alert('congratulations,' + ' ' + firstname + ' ' + 'you are qualified for the loan');
+            if (userPoint > 30) {
+                console.log('congratulations,' + ' ' + firstname + ' ' + 'you are qualified for this loan');
             }
             else {
-                alert('Sorry,' + ' ' + firstname + ' ' + 'you are not qualified to get the loan');
+                console.log('Sorry,' + ' ' + firstname + ' ' + 'you are not qualified to get this loan');
             }
+            // else userTotalPoint();
         }
+
+        
+        // function userTotalPoint(){
+        //     if (userPoint > 30) {
+        //         alert('congratulations,' + ' ' + firstname + ' ' + 'you are qualified for this loan');
+        //     }
+        //     else {
+        //         alert('Sorry,' + ' ' + firstname + ' ' + 'you are not qualified to get this loan');
+        //     }
+        // }
+
