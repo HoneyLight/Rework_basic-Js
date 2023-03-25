@@ -25,10 +25,12 @@ function add() {
 function addChild() {
   let nana = document.createElement('p');
   let nana2 = document.createTextNode('My name is Nana');
-
+// note: we have 3 ways of adding to html: (innerhtml, textcontent and textnode).
+// for textnode, you have to create the element e.g a button and then create the textnode and then appendthe text to the element
   nana.appendChild(nana2);
     document.body.appendChild(nana);
 }
+//Note: appenchild is when you are adding only one element while append is when you are adding more than element.
 
 //get siblings
 let firstborn = document.querySelector('li');

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>class 11 form</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <form id="form">
+        <h1>My Form</h1>
+        <p>First name</p>
+        <input id="Fname" name="detail" type="text" placeholder="Input First Name">
+        <p id="firstnameErr"></p>
+        <p>Last name</p>
+        <input id="Lname" type="text" placeholder="Input Last Name">
+        <p id="lastnameErr"></p>
+        <p>Email Address</p>
+        <input id="email" name="detail" type="email" placeholder="Input your email address">
+        <p id="emailErr"></p>
+        <p>Select a gender</p>
+        <select name="detail" id="gender">
+            <option value=""></option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+        </select>
+        <p id="gendertErr"></p>
+        <p>Phone Number</p>
+        <input id="phoneNumber" name="detail" type="number" placeholder="Input Phone Number">
+        <p id="phonenumberErr"></p>
+        <p>Birth Date</p>
+        <input id="DOB" name="detail" type="date" placeholder="">
+        <p id="dobErr"></p>
+        <p>Password</p>
+        <input id="password" name="detail" type="password" placeholder="Input your Password">
+        <p id="passwordErr"></p>
+        <div class="btns">
+            <button type="submit" id="btn">Submit</button>
+            <button type="button" onclick="resetBtn()" id="btn_reset">Reset</button>
+        </div>
+    </form>
+</body>
+<script src="index.js"></script>
+</html>

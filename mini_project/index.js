@@ -27,6 +27,10 @@
         let accountType = document.querySelectorAll('input[name="acc-type"]');
         let btn = document.getElementById('btn');
 
+        let x = 10;
+        let y = 5;
+        let userPoint = 0;
+
         function myFunction() {
             validation();
             accountDetails();
@@ -38,154 +42,174 @@
             if (firstname.value == undefined || firstname.value == "") {
                 firstNameErr.innerHTML = 'Required';
                 firstNameErr.classList.add('errormsg');
+                return false;
             }
-            else if (middlename.value == undefined || middlename.value == ""){
+            if (middlename.value == undefined || middlename.value == ""){
                 middleNameErr.innerHTML = 'Required';
                 middleNameErr.classList.add('errormsg');
+                return false;
             }
 
-            else  if (lastname.value == undefined || lastname.value == ""){
+            if (lastname.value == undefined || lastname.value == ""){
                 lastNameErr.innerHTML = 'Required';
                 lastNameErr.classList.add('errormsg');
+                return false;
             }
-            else if (gender.value == null || gender.value== ""){
+            if (gender.value == null || gender.value== ""){
                 alert("please input your Gender");
+                return false;
             }
-            else if (email.value == null || email.value=="")
-                alert('please input your email');
+            if (email.value == null || email.value=="")
+              {  alert('please input your email');
+              return false;}
 
-            else if ( phoneNumber.value.length < 11 ){
+            if ( phoneNumber.value.length < 11 ){
                 phoneNumErr.innerHTML = 'Phonenumber is required';
                 phoneNumErr.classList.add('errormsg');
+                return false;
             }
-            else {
-                accountDetails();
-            }
+            return true;
         }
 
         function accountDetails() {
+           if(validation()){
             if (accNum.value.length <= 10) {
                 accNumErr.innerHTML = 'Account number is required';
                 accNumErr.classList.add('errormsg');
+                return false;
             }
-            else if (bvn.value.length <= 10) {
+            if (bvn.value.length <= 10) {
                 bvnErr.innerHTML = 'Bank verification number is required';
                 bvnErr.classList.add('errormsg');
+                return false;
             }
-            else if (amtLoanNeeded.value== null || amtLoanNeeded.value=="") {
+            if (amtLoanNeeded.value== null || amtLoanNeeded.value=="") {
                 amtLoanNeededErr.innerHTML = 'Required';
                 amtLoanNeededErr.classList.add('errormsg');
+                return false;
             }            
-            else if (accountBalance.value== null || accountBalance.value=="") {
+            if (accountBalance.value== null || accountBalance.value=="") {
                 accountBalErr.innerHTML = 'Required';
                 accountBalErr.classList.add('errormsg');
+                return false;
             }
-            else if (creditHistory.value== null || creditHistory.value=="") {
+            if (creditHistory.value== null || creditHistory.value=="") {
                 creditHistoryErr.innerHTML = 'Required';
                 creditHistoryErr.classList.add('errormsg');
+                return false;
                 }
-            else if (lastDepositDate.value== null || lastDepositDate.value=="") {
+            if (lastDepositDate.value== null || lastDepositDate.value=="") {
                 lastDepositErr.innerHTML = 'Required';
                 lastDepositErr.classList.add('errormsg');
+                return false;
             }
-            else if (lastLoanDate.value== null || lastLoanDate.value=="") {
+            if (lastLoanDate.value== null || lastLoanDate.value=="") {
                 lastLoanDateErr.innerHTML = 'Required';
                 lastLoanDateErr.classList.add('errormsg');
+                return false;
             }
-            else if (loanRepaymentDate.value== null || loanRepaymentDate.value=="") {
+            if (loanRepaymentDate.value== null || loanRepaymentDate.value=="") {
                 loanRepaymentErr.innerHTML = 'Required';
                 loanRepaymentErr.classList.add('errormsg');
+                return false;
             }
-            else{
-                loanDetails();
-            }
+            return true;
+           }
+           else{return false}
         }
 
 
         function loanDetails() {
-            let x = 10;
-            let y = 5;
-            let userPoint = 0;
+            if(accountDetails()){
 
-            if (accountBalance > amtLoanNeeded) {
-                console.log(userPoint + x);
+            if (accountBalance.value > amtLoanNeeded.value) {
+                // console.log(userPoint + x);
+                userPoint=userPoint + x;
+                console.log(userPoint);
+                // return false;
             }
-            else if (accountBalance < amtLoanNeeded) {
-                console.log(userPoint - x);
+            else if (accountBalance.value < amtLoanNeeded.value) {
+                userPoint=userPoint - x;
+                console.log(userPoint);
+                // return false;
             }
-            if(creditHistory <= 6) {
-                console.log(userPoint + x);
-            }
-            else if (creditHistory > 6) {
-                console.log(userPoint - x);
-            }
+    // if(creditHistory <= 6) {
+    //     userPoint=userPoint + x;
+    //     // return false;
+    // }
+    // else if (creditHistory > 6) {
+    //     userPoint=userPoint - x;
+    //     // return false;
+    // }
 
-            let lastDepositDate_ = new Date(lastDepositDate.value);
-            let todaysDate = new Date();
-            let diff_in_days = (lastDepositDate_.getFullYear() * 12 + lastDepositDate_.getMonth() + lastDepositDate_.getDate()) - (todaysDate.getFullYear() * 12 + todaysDate.getMonth() + todaysDate.getDate());
-                
-            if (lastDepositDate <= 30) {
-                console.log(lastDepositDate.value);
-                console.log(diff_in_days);
-                console.log(userPoint + y);
-            }
-            else if (lastDepositDate > 30) {
-                console.log(lastDepositDate.value);
-                console.log(diff_in_days);
-                console.log(userPoint - y);
-            }
-
-            let lastLoanDate_ = new Date(lastLoanDate.value)
-            let currentDate = new Date();
-            let diff_in_months = (lastLoanDate_.getFullYear() * 12 + lastLoanDate_.getMonth()) - (currentDate.getFullYear() * 12 + currentDate.getMonth());
-            
-            if (lastLoanDate > 6){
-                console.log(lastLoanDate.value);
-                console.log(diff_in_months);
-                console.log(userPoint + x);                
-            }
-            else if (lastLoanDate < 6){
-                console.log(lastLoanDate.value);
-                console.log(diff_in_months);
-                console.log(userPoint - x);                
-            }
-
-            let loanRepaymentDate_ = new Date(loanRepaymentDate.value)
-            let presentDate = new Date();
-            let repayment_diff_in_months = (loanRepaymentDate_.getFullYear() * 12 + loanRepaymentDate_.getMonth()) - (presentDate.getFullYear() * 12 + presentDate.getMonth());
-                
-            if (loanRepaymentDate < 6){
-                console.log(loanRepaymentDate.value);
-                console.log(repayment_diff_in_months);
-                console.log(userPoint + y);
-            }
-            else if (loanRepaymentDate >= 6){
-                console.log(loanRepaymentDate.value);
-                console.log(repayment_diff_in_months);
-                console.log(userPoint - y);
-            }
-            if(accountType.value == 'current') {
-                console.log(userPoint + x);
-            }
-            else if(accountType.value == 'savings') {
-                console.log(userPoint + y);
-            }
-            if (userPoint > 30) {
-                console.log('congratulations,' + ' ' + firstname + ' ' + 'you are qualified for this loan');
-            }
-            else {
-                console.log('Sorry,' + ' ' + firstname + ' ' + 'you are not qualified to get this loan');
-            }
-            // else userTotalPoint();
-        }
-
+    // let lastDepositDate_ = new Date(lastDepositDate.value);
+    // let todaysDate = new Date();
+    // let diff_in_days = (lastDepositDate_.getFullYear() * 12 + lastDepositDate_.getMonth() + lastDepositDate_.getDate()) - (todaysDate.getFullYear() * 12 + todaysDate.getMonth() + todaysDate.getDate());
         
-        // function userTotalPoint(){
-        //     if (userPoint > 30) {
-        //         alert('congratulations,' + ' ' + firstname + ' ' + 'you are qualified for this loan');
-        //     }
-        //     else {
-        //         alert('Sorry,' + ' ' + firstname + ' ' + 'you are not qualified to get this loan');
-        //     }
-        // }
+    // if (lastDepositDate <= 30) {
+    //     console.log(lastDepositDate.value);
+    //     console.log(diff_in_days);
+    //     userPoint=userPoint + y;
+    //     // return false;
+    // }
+    // else if (lastDepositDate > 30) {
+    //     console.log(lastDepositDate.value);
+    //     console.log(diff_in_days);
+    //     userPoint=userPoint - y;
+    //     // return false;
+    // }
 
+    // let lastLoanDate_ = new Date(lastLoanDate.value)
+    // let currentDate = new Date();
+    // let diff_in_months = (lastLoanDate_.getFullYear() * 12 + lastLoanDate_.getMonth()) - (currentDate.getFullYear() * 12 + currentDate.getMonth());
+    
+    // if (lastLoanDate > 6){
+    //     console.log(lastLoanDate.value);
+    //     console.log(diff_in_months);
+    //     userPoint=userPoint + x;   
+    //     // return false;             
+    // }
+    // else if (lastLoanDate < 6){
+    //     console.log(lastLoanDate.value);
+    //     console.log(diff_in_months);
+    //     userPoint=userPoint - x;     
+    //     // return false;           
+    // }
+
+    // let loanRepaymentDate_ = new Date(loanRepaymentDate.value)
+    // let presentDate = new Date();
+    // let repayment_diff_in_months = (loanRepaymentDate_.getFullYear() * 12 + loanRepaymentDate_.getMonth()) - (presentDate.getFullYear() * 12 + presentDate.getMonth());
+        
+    // if (loanRepaymentDate < 6){
+    //     console.log(loanRepaymentDate.value);
+    //     console.log(repayment_diff_in_months);
+    //     userPoint=userPoint + y;
+    //     console.log(userPoint);
+    //     // return false;
+    // }
+    // else if (loanRepaymentDate >= 6){
+    //     console.log(loanRepaymentDate.value);
+    //     console.log(repayment_diff_in_months);
+    //     userPoint=userPoint - y;
+    //     console.log(userPoint);
+    //     // return false;
+    // }
+    // if(accountType.value == 'current') {
+    //     userPoint=userPoint + x;
+    //     console.log(userPoint);
+    //     // return false;
+    // }
+    // else if(accountType.value == 'savings') {
+    //     userPoint=userPoint + y;
+    //     console.log(userPoint);
+    //     // return false;
+    // }
+    if (userPoint > 30) {
+        console.log('congratulations,' + ' ' + firstname.value + ' ' + 'you are qualified for this loan');
+    }
+    else {
+        console.log('Sorry,' + ' ' + firstname.value + ' ' + 'you are not qualified to get this loan');
+    }
+
+}}
+    
