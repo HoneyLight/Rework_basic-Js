@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Room Reservation</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="main">
+        <div class="main-left">
+            <h1>COMFORT HOTEL</h1>
+            <p>Motto: <i>we are the definition of comfort.</i></p>
+        </div>
+        <div class="main-right">
+            <h2>ROOM RESERVATION FORM</h2>
+            <p><i>Kindly fill the form below to make your reservation.</i></p>
+            <form id="form">
+                <p>First name</p>
+                <input id="Fname" name="detail" type="text" placeholder="Input First Name">
+                <p id="firstnameErr"></p>
+                <p>Last name</p>
+                <input id="Lname" type="text" placeholder="Input Last Name">
+                <p id="lastnameErr"></p>
+                <p>Home Address</p>  
+                <input id="Homeaddress" type="text" placeholder="Input your home address">
+                <p id="homeaddressErr"></p>             
+                <p>Phone Number</p>
+                <input id="phoneNumber" name="detail" type="number" placeholder="Input Phone Number">
+                <p id="phonenumberErr"></p>
+                <p>Email Address</p>
+                <input id="email" name="detail" type="email" placeholder="Input your email address">
+                <p id="emailErr"></p>
+                <p>Check-in Date and Time</p>
+                <input type="datetime-local" name="check-in" id="check-in">
+                <p id="check-inErr"></p>
+                <p>Check-out Date and Time</p>
+                <input type="datetime-local" name="check-out" id="check-out">
+                <p id="check-outErr"></p>
+                <p>Room type</p>
+                <select name="room-type" id="room-type">
+                    <option value=""></option>
+                    <option value="Deluxe">Deluxe</option>
+                    <option value="Exclusive">Exclusive</option>
+                    <option value="Luxury">Luxury</option>
+                </select>
+                <p id="room-typeErr"></p>
+                <p>Number of persons to check-in</p>
+                <input type="number" name="num" id="numpersons">
+                <p id="numpersonsErr"></p>
+                <div class="btns">
+                    <button type="submit" id="btn" onclick="(onClick)">Submit</button>
+                    <button type="button" onclick="resetBtn()" id="btn_reset">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+   <script src="index.js"></script> 
+</body>
+</html>

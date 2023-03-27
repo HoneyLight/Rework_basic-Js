@@ -1,0 +1,75 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.bg_area{
+    height: 500px;
+    background-image: url(./img/sea-7756602__340.webp);
+    background-repeat: no-repeat;
+    background-position: cover;
+    background-size: 100% 100%;
+    color: white;
+    word-wrap: break-word;
+}
+.bg_area div{
+    text-align: center;
+    padding-top: 7rem;
+    line-height: 2;
+    font-size: larger;
+}
+
+/* room reservation */
+.main{
+    height: fit-content;
+    width: 97%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+}
+.main-left{
+    height: 500px;
+    width: 47%;
+    background-image: url(./img/bg.png);
+    background-repeat: no-repeat;
+    background-position: cover;
+    background-size: 100% 100%;
+    color: white;
+    text-align: center;
+}
+.main-right{
+    width: 47%;
+    text-align: center;
+}
+form{
+line-height: 2.5;
+}
+form input,
+#room-type{
+    width: 70%;
+    padding: 10px 0 10px 10px;
+    border-radius: 7px;
+}
+.btns{
+    margin-top: 1rem;
+}
+#btn{
+    background-color: rgb(23, 113, 23);
+    color: white;
+    width: 33%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 7px;
+    border: none;
+    cursor: pointer;
+}
+#btn_reset{
+    background-color: rgb(192, 38, 38);
+    color: white;
+    width: 33%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 7px;
+    cursor: pointer;
+    border: none;
+}
