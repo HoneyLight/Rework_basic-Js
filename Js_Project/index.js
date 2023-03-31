@@ -17,19 +17,14 @@ let roomType = document.getElementById('room-type');
 let roomtypeErr = document.getElementById('room-typeErr');
 let numPersons = document.getElementById('numpersons');
 let numpersonsErr = document.getElementById('numpersonsErr');
-
-
 let btn=document.getElementById('btn');
 let btn_reset = document.getElementById('btn_reset');
+
 
 form.addEventListener('submit', (e)=>{
     e.preventDefault();
     validation();
-    verification();
-//     let empty=document.querySelectorAll('#Fname, #Lname, #Homeaddress, #phoneNumber, #email');
-//     empty.forEach(input=>{
-//     input.value='';
-//   });
+    onClick();
 });
 
 function validation(){
@@ -80,60 +75,58 @@ function validation(){
     }   
     return true; 
 }
-        let checkInDate_=new Date(checkInDate.value);
-        let checkOutDate_=new Date(checkOutDate.value);
-        let duration_of_time = checkOutDate_.getTime()  - checkInDate_.getTime();
-        let duration_of_days = duration_of_time / (1000 * 3600 * 24);
-        console.log(checkInDate_);
-        console.log(checkOutDate_);
-        console.log('Total number of your reservation day(s) is' + ' ' + duration_of_days);        
+               
 
-function verification(){
+function onClick(){
     if(validation()){       
-        if(numPersons.value > 2){
-            numpersonsErr.innerHTML='Maximum number of persons in a room is 2 ';
-            numpersonsErr.style.color='red';
+        if(roomType.value == "Deluxe" && numPersons.value > 2){
+            alert("Sorry, Deluxe rooms can only accomodate 2 guests, hence it's not available to you. Kindly check the Luxury room");
             return false;
         }
+        if(roomType.value == "Exclusive" && numPersons.value > 2){
+            alert("Sorry, Exclusive rooms can only accomodate 2 guests, hence it's not available to you. Kindly check the Luxury room");
+            return false;
+        }
+        if(roomType.value == "Luxury" && numPersons.value > 4){
+            alert("Sorry, there is no available room to accomodate more than 4 guests. Kindly make reservation for more rooms");
+            return false;
+        }          
 
         let checkInDate_=new Date(checkInDate.value);
         let checkOutDate_=new Date(checkOutDate.value);
         let duration_of_time = checkOutDate_.getTime()  - checkInDate_.getTime();
         let duration_of_days = duration_of_time / (1000 * 3600 * 24);
-          
-        
+
         if(duration_of_days >= 1){
             console.log(checkInDate_);
             console.log(checkOutDate_);
-            console.log('Total number of your reservation day(s) is' + ' ' + duration_of_days);
+            console.log('You have made a reservation for' + duration_of_days + 'day(s)'); 
         }
 
-        let deluxe = 'We are sorry but this room category is not available, kindly check our other options. Thank you!';
-        let exclusiveCost = 35000;
-        let luxuryCost = 50000;
+        let deluxeCost = 30000;
+        let exclusiveCost = 45000;
+        let luxuryCost = 60000;
+        let customerCost;
 
         if(roomType.value == "Deluxe"){
-            alert(deluxe);
-        }
-        else if(roomType.value == "Exclusive"){
-            let customerCost = duration_of_days * exclusiveCost;
+            customerCost = duration_of_days * deluxeCost;
             console.log(customerCost);
         }
-        else if(roomType.value == "Luxury"){
-            let customerCost = duration_of_days * luxuryCost;
+        if(roomType.value == "Exclusive"){
+            customerCost = duration_of_days * exclusiveCost;
             console.log(customerCost);
         }
-        // else{
-        //     alert('work');
-        //     alert("First name: " +firstName.value +'<br></br>' + "Last name: " + lastName.value+'<br></br>'+ "Home Address: " + homeAddress.value+'<br></br>'+ "Phone number: " + phoneNumber.value+'<br></br>'+ "Email: "+email.value+'<br></br>' +'Check-in-Date: '+checkInDate.value +'<br></br>' +'Check-out-Date: '+checkOutDate.value +'<br></br>' +'Duration: '+ duration_of_days + ' day(s)' +'<br></br>' +'Room Type: '+roomType.value +'<br></br>' +'Number of guests: '+ numPersons.value + ' person(s)' +'<br></br>' +'Total amount: '+customerCost + 'naira');
-        // }
+        if(roomType.value == "Luxury"){
+            customerCost = duration_of_days * luxuryCost;
+            console.log(customerCost);
+        }
+        if(firstName.value !='' && lastName.value !='' && homeAddress.value!='' && phoneNumber.value != '' && email.value != '' && roomType.value !='' && numPersons.value!='' && checkInDate.value!='' && checkOutDate.value!=''){
+            document.write('<h2>Thank you for choosing us😎</h2><p>Kindly preview your booking details below before proceeding to make payment.👇</p>')
+            document.write("First name: " +firstName.value +'<br></br>' + "Last name: " + lastName.value+'<br></br>'+ "Home Address: " + homeAddress.value+'<br></br>'+ "Phone number: " + phoneNumber.value+'<br></br>' + "Email: "+email.value+'<br></br>' + "Room Type: "+roomType.value +'<br></br>' + "Number of guests: "+ numPersons.value + ' person(s)' +'<br></br>' + "Check-in-Date: " +checkInDate.value +'<br></br>' +"Check-out-Date: "+checkOutDate.value +'<br></br>');
+            document.write("Duration: "+ duration_of_days + ' day(s)' +'<br></br>');
+            document.write("Total amount: "+customerCost + ' naira')
+        }
     }  
-}
-function onClick(){
-    if(verification()){
-        alert('work');
-    }
-    
 }
 
 function removeErr(){

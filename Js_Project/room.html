@@ -10,12 +10,15 @@
 <body>
     <div class="main">
         <div class="main-left">
-            <h1>COMFORT HOTEL</h1>
-            <p>Motto: <i>we are the definition of comfort.</i></p>
+            <div class="main-left-1">
+                <h1>COMFORT HOTEL</h1>
+                <p>Motto: <i>we are the definition of comfort.</i></p>
+            </div>
+            <div class="main-left-2"><p>Enjoy the very best of comfort.</p></div>
         </div>
         <div class="main-right">
             <h2>ROOM RESERVATION FORM</h2>
-            <p><i>Kindly fill the form below to make your reservation.</i></p>
+            <p><i>Kindly fill the form below to make your reservation.👇👇👇</i></p>
             <form id="form">
                 <p>First name</p>
                 <input id="Fname" name="detail" type="text" placeholder="Input First Name">
@@ -41,16 +44,16 @@
                 <p>Room type</p>
                 <select name="room-type" id="room-type">
                     <option value=""></option>
-                    <option value="Deluxe">Deluxe</option>
-                    <option value="Exclusive">Exclusive</option>
-                    <option value="Luxury">Luxury</option>
+                    <option value="Deluxe">Deluxe room</option>
+                    <option value="Exclusive">Exclusive room</option>
+                    <option value="Luxury">Luxury Family room</option>
                 </select>
                 <p id="room-typeErr"></p>
                 <p>Number of persons to check-in</p>
                 <input type="number" name="num" id="numpersons">
                 <p id="numpersonsErr"></p>
                 <div class="btns">
-                    <button type="submit" id="btn" onclick="(onClick)">Submit</button>
+                    <button type="submit" id="btn" onclick="onClick()">Submit</button>
                     <button type="button" onclick="resetBtn()" id="btn_reset">Cancel</button>
                 </div>
             </form>
